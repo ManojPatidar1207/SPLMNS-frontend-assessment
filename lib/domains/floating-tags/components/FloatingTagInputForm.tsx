@@ -1,5 +1,7 @@
 "use client";
 import React, { useCallback, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 type FloatingTagInputFormProps = {
   onSubmit: (value: string) => void;
@@ -23,21 +25,15 @@ const FloatingTagInputForm: React.FC<FloatingTagInputFormProps> = ({
   );
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-3">
-      <input
+    <form onSubmit={handleSubmit} className="flex max-md:flex-col gap-3">
+      <Input
         required
-        type="text"
+        autoFocus
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="px-4 py-2 rounded border border-gray-300"
         placeholder="Enter text here"
       />
-      <button
-        type="submit"
-        className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-700"
-      >
-        Submit
-      </button>
+      <Button type="submit">Submit</Button>
     </form>
   );
 };
