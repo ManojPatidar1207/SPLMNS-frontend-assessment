@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased dark`}>
         <SidebarProvider>
           <AppSidebar />
           <main className="w-full flex flex-col gap-6 p-3 md:p-6">
