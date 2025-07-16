@@ -9,4 +9,5 @@ export const useFloatingTagsStore = create<FloatingTagsStore>()((set, get) => ({
     const newTags = [...get().tags, newTag];
     set({ tags: newTags });
   },
+  reset: () => set({ tags: [] }),
 }));

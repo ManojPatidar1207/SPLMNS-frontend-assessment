@@ -11,16 +11,26 @@ import { useFloatingTagsStore } from "@/lib/domains/floating-tags/store";
 
 const HomePage = () => {
   const router = useRouter();
-  const { tags, addTag } = useFloatingTagsStore();
+  const { tags, addTag, reset } = useFloatingTagsStore();
 
   const haveTags = useMemo(() => Boolean(tags.length), [tags]);
 
   const handleTagSubmit = useCallback(
     (input: string) => {
+      if (tags.length >= 5) {
+        const removeExistingTags = window.confirm(
+          "You can only add 5 tags, do you want to remove existing tags?\n\nAre you sure?"
+        );
+
+        if (!removeExistingTags) return;
+
+        reset();
+      }
+
       addTag(input);
       router.push("/floating-tags");
     },
-    [addTag, router]
+    [addTag, reset, router, tags.length]
   );
 
   return (
