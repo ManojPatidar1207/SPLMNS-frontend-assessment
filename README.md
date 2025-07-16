@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SPLMNS Assessment
+
+This project is an interactive web app built with Next.js, where users can submit short phrases or names and watch them float and bounce around a dynamic, animated background. The app demonstrates modern state management, smooth animations, and a clean, responsive UI.
+
+**Live Demo:** [View here](https://splmns-frontend-assessment-pi.vercel.app/)
+
+---
+
+## Features
+
+- **Quick Tag Entry:** Instantly add a phrase or name using a simple input form.
+- **Recent Tags List:** See your last five submitted tags for easy reference.
+- **Animated Visualization:** Experience your tags as animated, floating elements on a visually engaging video background.
+- **State Management:** Tags are managed globally using Zustand for a seamless experience.
+- **Responsive Design:** Looks great on any device with 16:9 aspect ratio.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (v18 or newer)
+- pnpm (for dependency management)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Install dependencies:**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   pnpm install
+   ```
 
-## Learn More
+2. **Start the development server:**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   pnpm dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## How It Works
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 1. Home Page
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Enter a phrase or name in the input field.
+- Submit to add it to your tag list (up to 5 tags).
+- If you reach the limit, you’ll be prompted to clear the list before adding more.
+
+### 2. Floating Tags Page
+
+- Your submitted tags appear as floating, animated elements.
+- Each tag starts at a random position and bounces within the container.
+- Navigation is available via the sidebar.
+
+---
+
+## Project Structure
+
+- `app/` – Next.js app directory (routes, layouts, and pages)
+  - `page.tsx` – Home page with tag input and list
+  - `floating-tags/page.tsx` – Animated floating tags visualization
+- `lib/domains/floating-tags/` – All tag-related logic
+  - `components/` – Tag input form, tag list, floating tag, and background
+  - `hooks/` – Animation logic for floating tags
+  - `store/` – Zustand store for tag state
+  - `typedefs/` – TypeScript types for tags and store
+- `components/sidebar/` – Sidebar navigation
+- `components/ui/` – Reusable UI primitives (button, input, etc.)
+- `public/particles/` – Background video asset
+
+---
+
+## Tech Stack
+
+- **Framework:** Next.js (React)
+- **Styling:** Tailwind CSS v4
+- **State:** Zustand
+- **Type Checking:** TypeScript
+- **Linting/Formatting:** ESLint, Prettier
+
+---
